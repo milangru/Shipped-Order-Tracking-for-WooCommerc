@@ -38,7 +38,6 @@ function wc_shipped_tracking_enqueue_styles() {
 add_action('wp_enqueue_scripts', 'wc_shipped_tracking_enqueue_styles');
 add_action('admin_enqueue_scripts', 'wc_shipped_tracking_enqueue_styles');
 
-
 // Function to get tracking providers from the email settings
 function get_tracking_providers_from_settings() {
     $providers = array();
@@ -105,7 +104,7 @@ function add_tracking_fields_to_order_edit_page($order) {
     <?php
 }
 
-    // Save tracking fields
+// Save tracking fields
 add_action('woocommerce_process_shop_order_meta', 'save_tracking_fields');
 function save_tracking_fields($order_id) {
     // Check if the nonce is set and valid
@@ -152,6 +151,17 @@ function display_tracking_info_in_admin_order_meta_box($order) {
     }
 }
 
+// Register custom order status
+function register_shipped_order_status() {
+    register_post_status('wc-shipped', array(
+        'label'                     => _x('Shipped', 'Order status', 'wc-shipped-tracking'),
+        'public'                    => true,
+        'show_in_admin_all_list'    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop('Shipped <span class="count">(%s)</span>', 'Shipped <span class="count">(%s)</span>', 'wc-shipped-tracking')
+    ));
+}
+add_action('init', 'register_shipped_order_status');
 
 // Add new order status to list of WooCommerce order statuses
 function add_shipped_to_order_statuses($order_statuses) {
@@ -196,13 +206,35 @@ function trigger_shipped_order_email($order_id, $order = false) {
     }
 }
 
-// Add custom column for tracking info
+/*// Add custom column for tracking info
 function add_tracking_info_column($columns) {
+    $new_columns = array();
+
+    // Add new column in the desired position
+    foreach ($columns as $key => $value) {
+        $new_columns[$key] = $value;
+        if ($key === 'order_status') {
+            $new_columns['order_tracking_info'] = __('Tracking Info', 'wc-shipped-tracking');
+        }
+    }
+
+    return $new_columns;
+}
+add_filter('manage_edit-shop_order_columns', 'add_tracking_info_column');
+*/
+// Add custom column for tracking info at the end
+function add_tracking_info_column($columns) {
+    // Remove the 'order_tracking_info' column if it already exists
+    if (isset($columns['order_tracking_info'])) {
+        unset($columns['order_tracking_info']);
+    }
+
+    // Add the custom column for tracking info at the end
     $columns['order_tracking_info'] = __('Tracking Info', 'wc-shipped-tracking');
+    
     return $columns;
 }
 add_filter('manage_edit-shop_order_columns', 'add_tracking_info_column');
-
 // Display tracking info in the custom column
 function display_tracking_info_column($column) {
     global $post;
@@ -217,10 +249,16 @@ function display_tracking_info_column($column) {
 
             // Fetch the URL for the tracking provider
             if (isset($providers[$tracking_provider])) {
-                $tracking_url = $providers[$tracking_provider];
+                $tracking_url = $providers[$tracking_provider]['url'];
                 
+                // Debugging output
+                error_log("Initial Tracking URL: $tracking_url");
+
                 // Append the tracking number directly to the URL
                 $tracking_url .= $tracking_number;
+
+                // Debugging output
+                error_log("Tracking URL after appending number: $tracking_url");
             }
 
             // Output the link with the tracking number appended
