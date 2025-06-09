@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Shiped order & tracking for Woocommerce
+Plugin Name: Shipped Order & Tracking for WooCommerce
 Description: Adds tracking information and shipped option to WooCommerce orders and emails.
-Version: 1.0.0
+Version: 1.2.0
 Author: Milan Grujic
 Text Domain: wc-shipped-tracking
 Domain Path: /languages
@@ -18,7 +18,12 @@ if ( !defined( 'ABSPATH' ) ) {
 // Enqueue the plugin stylesheet
 function wc_shipped_tracking_enqueue_styles() {
     // Check if we're on a WooCommerce order edit page in the admin area
-    if (is_admin() && isset($_GET['post_type']) && $_GET['post_type'] === 'shop_order') {
+    if (
+        is_admin() &&
+        isset($_GET['post_type'], $_GET['_wpnonce']) &&
+        $_GET['post_type'] === 'shop_order' &&
+        wp_verify_nonce(sanitize_text_field(wp_unslash($_GET['_wpnonce'])), 'shop_order_nonce')
+    ) {
         wp_enqueue_style(
             'wc-shipped-tracking-style',
             plugin_dir_url(__FILE__) . 'css/style.css',
@@ -108,12 +113,12 @@ function add_tracking_fields_to_order_edit_page($order) {
 add_action('woocommerce_process_shop_order_meta', 'save_tracking_fields');
 function save_tracking_fields($order_id) {
     // Check if the nonce is set and valid
-    if (isset($_POST['tracking_fields_nonce']) && wp_verify_nonce($_POST['tracking_fields_nonce'], 'save_tracking_fields_nonce_action')) {
+    if (isset($_POST['tracking_fields_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['tracking_fields_nonce'])), 'save_tracking_fields_nonce_action')) {
         if (isset($_POST['_tracking_number'])) {
-            update_post_meta($order_id, '_tracking_number', sanitize_text_field($_POST['_tracking_number']));
+            update_post_meta($order_id, '_tracking_number', sanitize_text_field(wp_unslash($_POST['_tracking_number'])));
         }
         if (isset($_POST['_tracking_provider'])) {
-            update_post_meta($order_id, '_tracking_provider', sanitize_text_field($_POST['_tracking_provider']));
+            update_post_meta($order_id, '_tracking_provider', sanitize_text_field(wp_unslash($_POST['_tracking_provider'])));
         }
     } else {
         // Nonce verification failed
@@ -158,6 +163,7 @@ function register_shipped_order_status() {
         'public'                    => true,
         'show_in_admin_all_list'    => true,
         'show_in_admin_status_list' => true,
+    // translators: %s is the number of shipped orders.
         'label_count'               => _n_noop('Shipped <span class="count">(%s)</span>', 'Shipped <span class="count">(%s)</span>', 'wc-shipped-tracking')
     ));
 }
@@ -252,13 +258,13 @@ function display_tracking_info_column($column) {
                 $tracking_url = $providers[$tracking_provider]['url'];
                 
                 // Debugging output
-                error_log("Initial Tracking URL: $tracking_url");
+                // error_log("Initial Tracking URL: $tracking_url");
 
                 // Append the tracking number directly to the URL
                 $tracking_url .= $tracking_number;
 
                 // Debugging output
-                error_log("Tracking URL after appending number: $tracking_url");
+                // error_log("Tracking URL after appending number: $tracking_url");
             }
 
             // Output the link with the tracking number appended
