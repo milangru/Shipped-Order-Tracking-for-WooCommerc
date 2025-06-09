@@ -1,19 +1,11 @@
 === Shiped order & tracking for Woocommerce ===
-
 Contributors: milangru79
-
 Tags: shipping, tracking, woocommerce
-
 Requires at least: 5.0
-
 Tested up to: 6.6
-
 Requires PHP: 7.2
-
 Stable tag: 1.0.0
-
 License: GPLv2 or later
-
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Shipped Order and Tracking Info for WooCommerce
@@ -81,6 +73,9 @@ This WooCommerce plugin adds functionality to manage and display tracking inform
     display_tracking_info_column(): Displays tracking info in the custom column.
 
 ==Changelog==
+1.2.0
+Increased security
+
 1.0
 
     Initial release with tracking info management, custom email integration, and new "Shipped" status.

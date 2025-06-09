@@ -94,45 +94,45 @@ class WC_Shipped_Order_Email extends WC_Email
     {
         $this->form_fields = array(
             'enabled' => array(
-                'title' => __('Enable/Disable', 'woocommerce'),
+                'title' => __('Enable/Disable', 'wc-shipped-tracking'),
                 'type' => 'checkbox',
-                'label' => __('Enable this email notification', 'woocommerce'),
+                'label' => __('Enable this email notification', 'wc-shipped-tracking'),
                 'default' => 'yes',
             ),
             'subject' => array(
-                'title' => __('Subject', 'woocommerce'),
+                'title' => __('Subject', 'wc-shipped-tracking'),
                 'type' => 'text',
                 // Translators: %s will be replaced with a list of available placeholders such as {order_number}.
-                'description' => sprintf(__('Available placeholders: %s', 'woocommerce'), '<code>{order_number}</code>'),
+                'description' => sprintf(__('Available placeholders: %s', 'wc-shipped-tracking'), '<code>{order_number}</code>'),
                 'default' => $this->subject,
                 'placeholder' => '',
             ),
             'heading' => array(
-                'title' => __('Email Heading', 'woocommerce'),
+                'title' => __('Email Heading', 'wc-shipped-tracking'),
                 'type' => 'text',
                 // Translators: %s will be replaced with a list of available placeholders such as {order_number}.
-                'description' => sprintf(__('Available placeholders: %s', 'woocommerce'), '<code>{order_number}</code>'),
+                'description' => sprintf(__('Available placeholders: %s', 'wc-shipped-tracking'), '<code>{order_number}</code>'),
                 'default' => $this->heading,
                 'placeholder' => '',
             ),
             'additional_recipients' => array(
-                'title' => __('Additional Recipients', 'woocommerce'),
+                'title' => __('Additional Recipients', 'wc-shipped-tracking'),
                 'type' => 'text',
-                'description' => __('Enter additional email recipients (comma separated).', 'woocommerce'),
+                'description' => __('Enter additional email recipients (comma separated).', 'wc-shipped-tracking'),
                 'default' => '',
-                'placeholder' => __('example@example.com', 'woocommerce'),
+                'placeholder' => __('example@example.com', 'wc-shipped-tracking'),
             ),
             'tracking_providers' => array(
-                'title' => __('Tracking Providers', 'woocommerce'),
+                'title' => __('Tracking Providers', 'wc-shipped-tracking'),
                 'type' => 'textarea',
-                'description' => __('Enter tracking providers in the format: provider_key|Provider Name|http://tracking-url.com?tracking_number=', 'woocommerce'),
+                'description' => __('Enter tracking providers in the format: provider_key|Provider Name|http://tracking-url.com?tracking_number=', 'wc-shipped-tracking'),
                 'default' => 'post_of_serbia|Post of Serbia|https://t.17track.net/en#nums=' . PHP_EOL . 'fedex|FedEx|https://www.fedex.com/apps/fedextrack/?tracknumbers=',
                 'placeholder' => '',
             ),
             'email_type' => array(
-                'title' => __('Email type', 'woocommerce'),
+                'title' => __('Email type', 'wc-shipped-tracking'),
                 'type' => 'select',
-                'description' => __('Choose which format of email to send.', 'woocommerce'),
+                'description' => __('Choose which format of email to send.', 'wc-shipped-tracking'),
                 'default' => 'html',
                 'class' => 'email_type',
                 'options' => $this->get_email_type_options(),
