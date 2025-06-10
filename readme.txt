@@ -36,6 +36,11 @@ No third-party accounts needed. Works with your existing shipping process.
 2. Activate the plugin through the "Plugins" menu in WordPress
 3. Go to a WooCommerce order, add tracking number and provider, then mark it as "Shipped"
 
+Configure Tracking Providers:
+        Navigate to WooCommerce > Settings > Emails.
+        Locate the settings for the Shipped Order email and configure tracking providers under the Tracking Providers section.
+
+
 == Frequently Asked Questions ==
 
 = Does this plugin support all shipping providers? =
