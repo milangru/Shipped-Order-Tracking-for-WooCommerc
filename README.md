@@ -22,7 +22,7 @@ Adds a "Shipped" status and tracking number fields to WooCommerce orders. Automa
 
 == Description ==
 
-Streamline your order fulfillment process with the **Shipped Order Tracking for WooCommerce** plugin. This powerful yet lightweight extension adds a dedicated "Shipped" order status and comprehensive tracking capabilities to your WooCommerce store.
+Streamline your order fulfillment process with the **Milan Shipped Order Tracking for WooCommerce** plugin. This powerful yet lightweight extension adds a dedicated "Shipped" order status and comprehensive tracking capabilities to your WooCommerce store.
 
 = Key Features =
 
