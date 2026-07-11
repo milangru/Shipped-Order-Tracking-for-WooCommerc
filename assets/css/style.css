@@ -1,0 +1,22 @@
+/* Custom Styles for Tracking Information */
+.tracking-info {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.tracking-info h2 {
+    color: #007cba;
+}
+
+.tracking-info p {
+    margin: 5px 0;
+}
+
+.tracking-info a {
+    color: #007cba;
+    text-decoration: none;
+}
+
+.tracking-info a:hover {
+    text-decoration: underline;
+}

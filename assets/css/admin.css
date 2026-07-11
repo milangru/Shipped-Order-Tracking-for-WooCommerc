@@ -1,0 +1,26 @@
+/* Add CSS to background shipping method*/
+
+.tracking-info-meta-box {
+    display: flex;
+    min-width: 100%;
+    justify-content: space-between;
+}
+.tracking-info-meta-box .woocommerce-help-tip {
+    display: none;
+}
+.order-status.status-shipped {
+    content: url("../images/truck-icon.png");
+    max-width: 44px;
+}
+@media screen and (max-width: 781px) {
+    .tracking-info-meta-box {
+        display: block;
+    }
+    #order_data .order_data_column .form-field {
+        width: 100%;
+    }
+    a.order-view,
+    a.order-preview {
+        min-width: fit-content;
+    }
+}
