@@ -141,6 +141,9 @@ No. This plugin works independently and does not require any third-party account
 
 == Upgrade Notice ==
 
+= 2.0.2 =
+-Bug Fix: The Recipient(s) column on WooCommerce > Settings > Emails now correctly displays "Customer" plus any configured additional recipients for the Order Shipped email.
+
 = 2.0.1 =
 * Critical bug fixes and WordPress standards compliance update
 
