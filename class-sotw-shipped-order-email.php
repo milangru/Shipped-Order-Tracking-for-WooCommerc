@@ -21,12 +21,27 @@ class SOTW_Shipped_Order_Email extends WC_Email
         $this->init_form_fields();
         $this->init_settings();
 
-        // Hook for saving settings
-        add_action('woocommerce_update_options_email_' . $this->id, array($this, 'process_admin_options'));
+        // Show in "Recipient(s)" page, Customer + additioanl emails
+$this->recipient = __('Customer', 'milans-shipped-order-tracking-for-woo');
+$additional_recipients = $this->get_option('additional_recipients');
+if (!empty($additional_recipients)) {
+    $this->recipient .= ', ' . $additional_recipients;
+}
 
-        // Call parent constructor to load any other defaults not explicitly defined here
-        parent::__construct();
-    }
+    add_action('woocommerce_update_options_email_' . $this->id, array($this, 'process_admin_options'));
+
+    parent::__construct();
+}
+
+public function get_recipient()
+{
+    return apply_filters('woocommerce_email_recipient_' . $this->id, $this->recipient, $this->object);
+}
+
+public function is_customer_email()
+{
+    return false;
+}
 
     public function trigger($order_id, $order = false)
     {

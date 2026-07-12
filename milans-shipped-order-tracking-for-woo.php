@@ -4,7 +4,7 @@
  * Requires Plugins:  woocommerce
  * Plugin URI:        https://github.com/milangru/milans-shipped-order-tracking-for-woo
  * Description:       Adds a "Shipped" order status and automatically sends tracking emails to customers.
- * Version:           2.0.1
+ * Version:           2.0.2
  * Author:            Milan Grujić
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -35,7 +35,7 @@ function sotw_enqueue_styles( $hook_suffix ) {
         );
     } 
     
-    // 2. Učitavanje FRONTEND stila (samo na tracking stranici)
+    // 2. frontend styles
     if ( ! is_admin() && is_page( 'tracking' ) ) {
         wp_enqueue_style(
             'wc-shipping-tracking-style',
@@ -211,13 +211,12 @@ function sotw_trigger_shipped_email($order_id, $order = false) {
     $mailer = WC()->mailer();
     $emails = $mailer->get_emails();
     
-    // ✅ FIXED: Use the correct class name
     if (!empty($emails) && !empty($emails['SOTW_Shipped_Order_Email'])) {
         $emails['SOTW_Shipped_Order_Email']->trigger($order_id, $order);
     }
 }
 
-// Add custom column for tracking info at the end (Kompatibilno i sa HPOS-om)
+// Add custom column for tracking info at the end (Compatible with HPOS)
 function sotw_add_tracking_column($columns) {
     if (isset($columns['order_tracking_info'])) {
         unset($columns['order_tracking_info']);
@@ -227,10 +226,10 @@ function sotw_add_tracking_column($columns) {
     
     return $columns;
 }
-// Dodat filter za HPOS podršku
+//Added for HPOS support
 add_filter('manage_edit-shop_order_columns', 'sotw_add_tracking_column');
-add_filter('manage_screen-id_shop_order_columns', 'sotw_add_tracking_column'); // Za novije WooCommerce verzije
-add_filter('manage_woocommerce_page_wc-orders_columns', 'sotw_add_tracking_column'); // HPOS tabela
+add_filter('manage_screen-id_shop_order_columns', 'sotw_add_tracking_column'); // New WooCommerce versions
+add_filter('manage_woocommerce_page_wc-orders_columns', 'sotw_add_tracking_column'); // HPOS table
 
 /// Display tracking info in the custom column
 function sotw_display_tracking_column($column, $order_or_post = null) {

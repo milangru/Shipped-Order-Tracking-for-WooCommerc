@@ -12,7 +12,7 @@ Tested up to: 7.0
 
 Requires PHP: 7.4
 
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 License: GPLv2 or later
 
@@ -118,6 +118,10 @@ No. This plugin works independently and does not require any third-party account
 
 == Changelog ==
 
+= 2.0.2 =
+
+- Fix: The Recipient(s) column on WooCommerce > Settings > Emails now correctly displays "Customer" plus any configured additional recipients for the Order Shipped email.
+
 = 2.0.1 =
 
 - Fixed: Email class naming convention (WC_Shipped_Order_Email → SOTW_Shipped_Order_Email)
@@ -149,6 +153,10 @@ No. This plugin works independently and does not require any third-party account
 - Full internationalization support
 
 == Upgrade Notice ==
+
+= 2.0.2 =
+
+- Fix: The Recipient(s) column on WooCommerce > Settings > Emails now correctly displays "Customer" plus any configured additional recipients for the Order Shipped email.
 
 = 2.0.1 =
 
