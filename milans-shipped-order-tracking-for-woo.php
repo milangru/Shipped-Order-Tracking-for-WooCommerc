@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name:       Milans Shipped Order Tracking for Woo
+ * Plugin Name:       Milan's Shipped Order Tracking for Woo
  * Requires Plugins:  woocommerce
  * Plugin URI:        https://github.com/milangru/milans-shipped-order-tracking-for-woo
  * Description:       Adds a "Shipped" order status and automatically sends tracking emails to customers.
- * Version:           2.0.2
+ * Version:           2.0.3
  * Author:            Milan Grujić
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

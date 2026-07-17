@@ -1,4 +1,4 @@
-=== Milans Shipped Order Tracking for Woo ===
+=== Milan's Shipped Order Tracking for Woo ===
 
 Contributors: milangru
 
@@ -12,7 +12,7 @@ Tested up to: 7.0
 
 Requires PHP: 7.4
 
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 
 License: GPLv2 or later
 
@@ -117,6 +117,10 @@ No. This plugin works independently and does not require any third-party account
 5. **Admin Orders Column** - View tracking info in the orders list
 
 == Changelog ==
+
+= 2.0.3 =
+
+- Tweaked: Updated plugin display name.
 
 = 2.0.2 =
 

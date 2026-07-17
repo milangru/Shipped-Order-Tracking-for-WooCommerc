@@ -1,11 +1,11 @@
-=== Milans Shipped Order Tracking for Woo ===
+=== Milan's Shipped Order Tracking for Woo ===
 Contributors: milangru
 Donate link: https://paypal.me/milangru79
 Tags: shipping, tracking, woocommerce, order status, delivery
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,6 +109,10 @@ No. This plugin works independently and does not require any third-party account
 5. **Admin Orders Column** - View tracking info in the orders list
 
 == Changelog ==
+
+= 2.0.3 =
+
+* Tweaked: Updated plugin display name.
 
 = 2.0.2 =
 -Fix: The Recipient(s) column on WooCommerce > Settings > Emails now correctly displays "Customer" plus any configured additional recipients for the Order Shipped email.
