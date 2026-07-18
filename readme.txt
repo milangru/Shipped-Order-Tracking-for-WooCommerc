@@ -151,8 +151,8 @@ No. This plugin works independently and does not require any third-party account
 = 2.0.4 =
 * Added: Admin notice asking users to leave a review after successfully shipping 20+ orders, with dismiss/snooze options.
 
-= 2.0.4 =
-* Added: Admin notice asking users to leave a review after successfully shipping 20+ orders, with dismiss/snooze options.
+= 2.0.3 =
+* Tweaked: Updated plugin display name.
 
 = 2.0.2 =
 -Bug Fix: The Recipient(s) column on WooCommerce > Settings > Emails now correctly displays "Customer" plus any configured additional recipients for the Order Shipped email.
