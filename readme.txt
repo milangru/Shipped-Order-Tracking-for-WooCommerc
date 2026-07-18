@@ -5,7 +5,7 @@ Tags: shipping, tracking, woocommerce, order status, delivery
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -110,6 +110,9 @@ No. This plugin works independently and does not require any third-party account
 
 == Changelog ==
 
+= 2.0.4 =
+* Added: Admin notice asking users to leave a review after successfully shipping 20+ orders, with dismiss/snooze options.
+
 = 2.0.3 =
 
 * Tweaked: Updated plugin display name.
@@ -144,6 +147,12 @@ No. This plugin works independently and does not require any third-party account
 * Full internationalization support
 
 == Upgrade Notice ==
+
+= 2.0.4 =
+* Added: Admin notice asking users to leave a review after successfully shipping 20+ orders, with dismiss/snooze options.
+
+= 2.0.4 =
+* Added: Admin notice asking users to leave a review after successfully shipping 20+ orders, with dismiss/snooze options.
 
 = 2.0.2 =
 -Bug Fix: The Recipient(s) column on WooCommerce > Settings > Emails now correctly displays "Customer" plus any configured additional recipients for the Order Shipped email.

@@ -4,7 +4,7 @@
  * Requires Plugins:  woocommerce
  * Plugin URI:        https://github.com/milangru/milans-shipped-order-tracking-for-woo
  * Description:       Adds a "Shipped" order status and automatically sends tracking emails to customers.
- * Version:           2.0.3
+ * Version:           2.0.4
  * Author:            Milan Grujić
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,6 +18,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-review-notice.php';
+new MSOT_Review_Notice();
 
 // Enqueue the plugin stylesheets for admin and public pages
 function sotw_enqueue_styles( $hook_suffix ) {
@@ -208,6 +210,8 @@ function sotw_trigger_shipped_email($order_id, $order = false) {
         return;
     }
 
+    MSOT_Review_Notice::increment_shipped_count();
+    
     $mailer = WC()->mailer();
     $emails = $mailer->get_emails();
     

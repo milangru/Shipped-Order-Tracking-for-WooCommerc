@@ -35,6 +35,7 @@ if (!empty($additional_recipients)) {
 
 public function get_recipient()
 {
+    // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
     return apply_filters('woocommerce_email_recipient_' . $this->id, $this->recipient, $this->object);
 }
 

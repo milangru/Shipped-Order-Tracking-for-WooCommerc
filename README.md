@@ -12,7 +12,7 @@ Tested up to: 7.0
 
 Requires PHP: 7.4
 
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 
 License: GPLv2 or later
 
@@ -118,6 +118,11 @@ No. This plugin works independently and does not require any third-party account
 
 == Changelog ==
 
+= 2.0.4 =
+
+- Admin notice prompting users to leave a review on WordPress.org after successfully shipping 20+ orders.
+- Notice includes "Leave a review", "I already left a review", "Remind me later" (14-day snooze), and "No, thanks" options.
+
 = 2.0.3 =
 
 - Tweaked: Updated plugin display name.
@@ -157,6 +162,11 @@ No. This plugin works independently and does not require any third-party account
 - Full internationalization support
 
 == Upgrade Notice ==
+
+= 2.0.4 =
+
+- Admin notice prompting users to leave a review on WordPress.org after successfully shipping 20+ orders.
+- Notice includes "Leave a review", "I already left a review", "Remind me later" (14-day snooze), and "No, thanks" options.
 
 = 2.0.2 =
 

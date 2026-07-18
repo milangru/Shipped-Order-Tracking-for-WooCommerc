@@ -3,6 +3,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 do_action('woocommerce_email_header', $email_heading, $email);
 
 ?>
@@ -62,7 +63,11 @@ do_action('woocommerce_email_header', $email_heading, $email);
 <br/>
 
 <?php
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 do_action('woocommerce_email_order_details', $order, $sent_to_admin, $plain_text, $email);
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 do_action('woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email);
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 do_action('woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email);
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 do_action('woocommerce_email_footer', $email);
